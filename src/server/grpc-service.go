@@ -47,7 +47,7 @@ func (gs *GrpcServer) PublishWork(ctx context.Context, req *proto.PublishWorkReq
 	return nil, nil
 }
 
-func (gs *GrpcServer) GetStatus(ctx context.Context, req *proto.TxStatusRequest) (*proto.TxStatusResponce, error) {
+func (gs *GrpcServer) GetStatus(ctx context.Context, req *proto.TxStatusRequest) (*proto.TxStatusResponse, error) {
 	return nil, nil
 }
 
@@ -64,6 +64,17 @@ func (gs *GrpcServer) PurchaseWork(ctx context.Context, req *proto.PurchaseWorkR
 		AuthorTxStatus: &proto.TxHashResponse{
 			TxHash: authorTxHash,
 		},
+	}, nil
+}
+
+func (gs *GrpcServer) Faucet(ctx context.Context, req *proto.FaucetRequest) (*proto.TxHashResponse, error) {
+	txHash, err := gs.service.Faucet(req.Address, req.Amount)
+	if err != nil {
+		return nil, err
+	}
+
+	return &proto.TxHashResponse{
+		TxHash: txHash,
 	}, nil
 }
 

@@ -3,7 +3,7 @@ module github.com/SeaOfWisdom/sow_contractor
 go 1.19
 
 require (
-	github.com/SeaOfWisdom/sow_proto v0.0.0-20230610124126-ecff8b0e4850
+	github.com/SeaOfWisdom/sow_proto v0.0.0-20230716094105-cbcdfdd56db0
 	github.com/ethereum/go-ethereum v1.12.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/namsral/flag v1.7.4-pre

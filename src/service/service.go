@@ -21,18 +21,21 @@ import (
 
 // BscConnector ...
 type Service struct {
-	cfg             *config.Config
-	chainID         int64
-	currentBlock    int64
+	cfg    *config.Config
+	logger *logrus.Entry
+	client *ethclient.Client
+
+	chainID      int64
+	currentBlock int64
+
 	operatorAddress common.Address
 	sowToken        common.Address
-	logger          *logrus.Entry
-	client          *ethclient.Client
+	sowLibrary      common.Address
 }
 
 // NewService ...
 func NewService(logger *logrus.Logger, cfg *config.Config) *Service {
-	client, err := ethclient.Dial(cfg.BscProvider)
+	client, err := ethclient.Dial(cfg.Provider)
 	if err != nil {
 		panic("new eth Client error")
 	}
@@ -47,20 +50,21 @@ func NewService(logger *logrus.Logger, cfg *config.Config) *Service {
 		panic(fmt.Sprintf("get public key error, err: %s", err.Error()))
 	}
 	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
-	if !bytes.Equal(common.HexToAddress(cfg.BscOperatorAddress).Bytes(), fromAddress.Bytes()) {
+	if !bytes.Equal(common.HexToAddress(cfg.OperatorAddress).Bytes(), fromAddress.Bytes()) {
 		panic(fmt.Sprintf(
 			"relayer address supplied in config (%s) does not match mnemonic (%s)",
-			cfg.BscOperatorAddress, fromAddress,
+			cfg.OperatorAddress, fromAddress,
 		))
 	}
 	// init token addresses
 	return &Service{
 		cfg:             cfg,
-		chainID:         cfg.BscChainID,
+		chainID:         cfg.ChainID,
 		logger:          logger.WithField("service", "SOW_CONTRACTOR"),
 		client:          client,
-		operatorAddress: common.HexToAddress(cfg.BscOperatorAddress),
-		sowToken:        common.HexToAddress("0x800fc10bac18a0e2bd00fffaa760301cacec119b"), // TODO
+		operatorAddress: common.HexToAddress(cfg.OperatorAddress),
+		sowToken:        common.HexToAddress(cfg.SowTokenAddress),
+		sowLibrary:      common.HexToAddress(cfg.SowLibraryAddress),
 	}
 }
 
@@ -79,11 +83,11 @@ func (s *Service) CheckSentTxStatus(txHash string) {
 			s.logger.Errorf("tx(%s) was NOT sent, err: %v", txHash, err)
 			return
 		}
-		time.Sleep(5 * s.cfg.BscCheckerSleepTime)
+		time.Sleep(5 * s.cfg.CheckerSleepTime)
 		status, err = s.GetSentTxStatus(txHash)
 		if err != nil {
 			if strings.Contains(err.Error(), "not found") {
-				time.Sleep(2 * s.cfg.BscCheckerSleepTime)
+				time.Sleep(2 * s.cfg.CheckerSleepTime)
 				count++
 				continue
 			}
@@ -144,7 +148,7 @@ func (s *Service) getTransactor() (auth *bind.TransactOpts, err error) {
 }
 
 func getPrivateKey(config *config.Config) (*ecdsa.PrivateKey, error) {
-	privKey, err := crypto.HexToECDSA(config.BscOperatorPrivateKey)
+	privKey, err := crypto.HexToECDSA(config.OperatorPrivateKey)
 	if err != nil {
 		return nil, err
 	}

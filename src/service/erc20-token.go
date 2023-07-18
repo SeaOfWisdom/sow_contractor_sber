@@ -43,7 +43,7 @@ func (s *Service) mint(accountStr string, amount *big.Int) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	auth.GasLimit = 100000 // 100 000
+	//	auth.GasLimit = 100000 // 100 000
 
 	instance, err := erc20.NewBond(s.sowToken, s.client)
 	if err != nil {

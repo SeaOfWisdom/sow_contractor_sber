@@ -17,13 +17,15 @@ type Config struct {
 	MongoPassword string
 	MongoDBName   string
 	/* BSC Blockchain */
-	BscProvider           string
-	BscChainID            int64
-	BscOperatorPrivateKey string
-	BscOperatorAddress    string
-	BscCheckerSleepTime   time.Duration
-	BscWaitForBlocks      uint64
+	Provider           string
+	ChainID            int64
+	OperatorPrivateKey string
+	OperatorAddress    string
+	CheckerSleepTime   time.Duration
+	WaitForBlocks      uint64
 	/* Smart contracts */
+	SowTokenAddress   string
+	SowLibraryAddress string
 
 	/* Internal communication services */
 	JWTServiceGRpcAddress string
@@ -37,13 +39,15 @@ func NewConfig() *Config {
 	/* Prometheus */
 	flag.StringVar(&config.PrometheusAddress, "prometheus-address", "localhost:8075", "host and port for prometheus")
 	/* BSC Blockchain */
-	flag.StringVar(&config.BscProvider, "bsc-provider", "https://data-seed-prebsc-2-s2.binance.org:8545", "")
-	flag.Int64Var(&config.BscChainID, "bsc-chain-id", 97, "")
-	flag.StringVar(&config.BscOperatorPrivateKey, "bsc-operator-private-key", "", "")
-	flag.StringVar(&config.BscOperatorAddress, "bsc-operator-address", "0xdD868980eF73eDCbC1fF758F6e53023bE18e2A52", "")
-	flag.Uint64Var(&config.BscWaitForBlocks, "bsc-wait-for-blocks", 10, "")
-	flag.DurationVar(&config.BscCheckerSleepTime, "bsc-checker-sleep-time", 3*time.Second, "")
+	flag.StringVar(&config.Provider, "provider", "https://rpc.test.siberium.net", "")
+	flag.Int64Var(&config.ChainID, "bsc-chain-id", 111000, "")
+	flag.StringVar(&config.OperatorPrivateKey, "bsc-operator-private-key", "", "")
+	flag.StringVar(&config.OperatorAddress, "bsc-operator-address", "0xdD868980eF73eDCbC1fF758F6e53023bE18e2A52", "")
+	flag.Uint64Var(&config.WaitForBlocks, "bsc-wait-for-blocks", 10, "")
+	flag.DurationVar(&config.CheckerSleepTime, "bsc-checker-sleep-time", 3*time.Second, "")
 	/* Smart contracts */
+	flag.StringVar(&config.SowTokenAddress, "sow-token-address", "", "")
+	flag.StringVar(&config.SowLibraryAddress, "sow-library-address", "", "")
 
 	/* parse config from envs or config files */
 	flag.Parse()

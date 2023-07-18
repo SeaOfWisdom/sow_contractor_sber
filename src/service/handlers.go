@@ -34,6 +34,15 @@ func (s *Service) PurchaseWork(readerAddressStr, authorAddressStr, amountStr str
 	return
 }
 
+func (s *Service) Faucet(addressStr, amountStr string) (string, error) {
+	amount, success := big.NewInt(0).SetString(amountStr, 10)
+	if !success || amount.String() == "0" { // TODO > 0
+		return "", fmt.Errorf("amount %s is wrong", amountStr)
+	}
+
+	return s.mint(addressStr, amount)
+}
+
 func (s *Service) GetStatus() (string, error) {
 	return "", nil
 }
