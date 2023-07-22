@@ -10,21 +10,21 @@ import (
 	"time"
 
 	"github.com/SeaOfWisdom/sow_contractor/src/config"
+	"github.com/SeaOfWisdom/sow_contractor/src/log"
 	"github.com/SeaOfWisdom/sow_contractor/src/storage"
 	lib "github.com/SeaOfWisdom/sow_proto/lib-srv"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
-
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/sirupsen/logrus"
 )
 
 // BscConnector ...
 type Service struct {
 	cfg    *config.Config
-	logger *logrus.Entry
+	logger *log.Logger
 	client *ethclient.Client
 
 	strSrv *storage.StorageService
@@ -40,7 +40,7 @@ type Service struct {
 }
 
 // NewService ...
-func NewService(logger *logrus.Logger, cfg *config.Config, strSrv *storage.StorageService, libSrv lib.LibraryServiceClient) *Service {
+func NewService(logger *log.Logger, cfg *config.Config, strSrv *storage.StorageService, libSrv lib.LibraryServiceClient) *Service {
 	client, err := ethclient.Dial(cfg.Provider)
 	if err != nil {
 		panic("new eth Client error")
@@ -50,11 +50,13 @@ func NewService(logger *logrus.Logger, cfg *config.Config, strSrv *storage.Stora
 	if err != nil {
 		panic(fmt.Sprintf("generate private key error, err: %s", err.Error()))
 	}
+
 	publicKey := privKey.Public()
 	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
 	if !ok {
 		panic(fmt.Sprintf("get public key error, err: %s", err.Error()))
 	}
+
 	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
 	if !bytes.Equal(common.HexToAddress(cfg.OperatorAddress).Bytes(), fromAddress.Bytes()) {
 		panic(fmt.Sprintf(
@@ -66,7 +68,7 @@ func NewService(logger *logrus.Logger, cfg *config.Config, strSrv *storage.Stora
 	return &Service{
 		cfg:             cfg,
 		chainID:         cfg.ChainID,
-		logger:          logger.WithField("service", "SOW_CONTRACTOR"),
+		logger:          logger,
 		client:          client,
 		strSrv:          strSrv,
 		libSrv:          libSrv,
@@ -141,6 +143,7 @@ func (s *Service) CheckSentTxStatus(txHash string) {
 		var status bool
 		if count > 5 {
 			s.logger.Errorf("tx(%s) was NOT sent, err: %v", txHash, err)
+
 			return
 		}
 		time.Sleep(5 * s.cfg.CheckerSleepTime)
@@ -151,14 +154,18 @@ func (s *Service) CheckSentTxStatus(txHash string) {
 				count++
 				continue
 			}
+
 			s.logger.Errorf("tx(%s) was NOT sent, err: %v", txHash, err)
+
 			return
 		}
 
 		if status {
 			s.logger.Infof("Tx(%s) was sent successfully\n", txHash)
+
 			return
 		}
+
 		count++
 	}
 }
@@ -169,6 +176,7 @@ func (s *Service) GetSentTxStatus(hash string) (bool, error) {
 	if err != nil {
 		return false, fmt.Errorf("NOT_FOUND")
 	}
+
 	if isPending {
 		return false, nil
 	}
@@ -201,6 +209,7 @@ func (s *Service) getTransactor() (auth *bind.TransactOpts, err error) {
 	if err != nil {
 		return nil, err
 	}
+
 	auth.Nonce = big.NewInt(int64(nonce))
 	auth.Value = big.NewInt(0) // in wei
 
@@ -212,6 +221,7 @@ func getPrivateKey(config *config.Config) (*ecdsa.PrivateKey, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return privKey, nil
 }
 

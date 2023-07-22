@@ -3,7 +3,7 @@ module github.com/SeaOfWisdom/sow_contractor
 go 1.19
 
 require (
-	github.com/SeaOfWisdom/sow_proto v0.0.0-20230719113458-90999dab4238
+	github.com/SeaOfWisdom/sow_proto v0.0.0-20230721115747-1eb47e5f5681
 	github.com/ethereum/go-ethereum v1.12.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/namsral/flag v1.7.4-pre
@@ -28,7 +28,7 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/holiman/uint256 v1.2.2-0.20230321075855-87b91420868c // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect

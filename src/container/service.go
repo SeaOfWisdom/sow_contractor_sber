@@ -3,16 +3,16 @@ package container
 import (
 	"context"
 	"fmt"
-	"time"
 
 	"github.com/SeaOfWisdom/sow_contractor/src/config"
+	"github.com/SeaOfWisdom/sow_contractor/src/log"
 	"github.com/SeaOfWisdom/sow_contractor/src/server"
 	srv "github.com/SeaOfWisdom/sow_contractor/src/service"
 	"github.com/SeaOfWisdom/sow_contractor/src/storage"
 	libProto "github.com/SeaOfWisdom/sow_proto/lib-srv"
+
 	"github.com/go-redis/redis/v8"
 	"github.com/olebedev/emitter"
-	"github.com/sirupsen/logrus"
 	"go.uber.org/dig"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -21,7 +21,7 @@ import (
 func CreateContainer() *dig.Container {
 	container := dig.New()
 	/* init base */
-	must(container.Provide(NewLogger))
+	must(container.Provide(log.NewLogger))
 	must(container.Provide(config.NewConfig))
 	must(container.Provide(func() *emitter.Emitter {
 		return emitter.New(10)
@@ -53,23 +53,6 @@ func CreateContainer() *dig.Container {
 	must(container.Provide(srv.NewService))
 	must(container.Provide(server.NewGrpcServer))
 	return container
-}
-
-func NewLogger() *logrus.Logger {
-	// init logrus logger
-	logger := logrus.New()
-	logger.SetFormatter(&logrus.TextFormatter{
-		ForceColors:     true,
-		FullTimestamp:   true,
-		TimestampFormat: time.RFC822,
-	})
-	// set logger level
-	level, err := logrus.ParseLevel("debug")
-	if err != nil {
-		panic(err)
-	}
-	logger.SetLevel(level)
-	return logger
 }
 
 func MustInvoke(container *dig.Container, function interface{}, opts ...dig.InvokeOption) {

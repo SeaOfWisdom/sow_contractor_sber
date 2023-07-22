@@ -30,7 +30,7 @@ var (
 
 // LibraryMetaData contains all meta data concerning the Library contract.
 var LibraryMetaData = &bind.MetaData{
-	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewards\",\"type\":\"uint256\"}],\"name\":\"AuthorRewardsClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"FactoryChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"reader\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"}],\"name\":\"PaperPurchased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewards\",\"type\":\"uint256\"}],\"name\":\"ReviewerRewardsClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enumIParticipantHandler.Role\",\"name\":\"prevRole\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enumIParticipantHandler.Role\",\"name\":\"newRole\",\"type\":\"uint8\"}],\"name\":\"RoleChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"SowTokenChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"addParticipant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"reviewerAddresses\",\"type\":\"address[]\"},{\"internalType\":\"uint8[]\",\"name\":\"reviews\",\"type\":\"uint8[]\"}],\"name\":\"addReviewsForWork\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"authorPercent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"becomeAuthor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"becomeReviewer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimAuthorRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"}],\"name\":\"claimReviewerRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expires\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"contractPaperFactory\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"authorAddress\",\"type\":\"address\"}],\"name\":\"getAuthorPapers\",\"outputs\":[{\"internalType\":\"contractSPT[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"authorAddress\",\"type\":\"address\"}],\"name\":\"getAuthorRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"reviewerAddress\",\"type\":\"address\"}],\"name\":\"getReviewerRewardsForWork\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"getRole\",\"outputs\":[{\"internalType\":\"enumIParticipantHandler.Role\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"reviewerAddress\",\"type\":\"address\"}],\"name\":\"isAbleToClaimForPaper\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"isAuthor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"reviewerAddress\",\"type\":\"address\"}],\"name\":\"isReviewer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"join\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"makeAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"makeAuthor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"makeReviewer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxPercent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minNumReadings\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"authorAddresses\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"tokenURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"}],\"name\":\"publishPaper\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"},{\"internalType\":\"string[]\",\"name\":\"reviews\",\"type\":\"string[]\"},{\"internalType\":\"bytes[]\",\"name\":\"reviewSignatures\",\"type\":\"bytes[]\"}],\"name\":\"publishReviewsBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"}],\"name\":\"purchasePaper\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reviewerDepositAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"factoryAddress\",\"type\":\"address\"}],\"name\":\"setPaperFactory\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sowTokenAddress\",\"type\":\"address\"}],\"name\":\"setSowToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sowToken\",\"outputs\":[{\"internalType\":\"contractIERC20Upgradeable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewards\",\"type\":\"uint256\"}],\"name\":\"AuthorRewardsClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"FactoryChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"reader\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"workId\",\"type\":\"uint256\"}],\"name\":\"PaperPurchased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewards\",\"type\":\"uint256\"}],\"name\":\"ReviewerRewardsClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"enumIParticipantHandler.Role\",\"name\":\"prevRole\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enumIParticipantHandler.Role\",\"name\":\"newRole\",\"type\":\"uint8\"}],\"name\":\"RoleChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"prevAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"SowTokenChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"addParticipant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"reviewerAddresses\",\"type\":\"address[]\"},{\"internalType\":\"uint8[]\",\"name\":\"reviews\",\"type\":\"uint8[]\"}],\"name\":\"addReviewsForPaper\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"authorPercent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"becomeAuthor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"becomeReviewer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimAuthorRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"}],\"name\":\"claimReviewerRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expires\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"\",\"type\":\"uint64\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"contractTokenFactory\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"authorAddress\",\"type\":\"address\"}],\"name\":\"getAuthorPapers\",\"outputs\":[{\"internalType\":\"contractSPT[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"authorAddress\",\"type\":\"address\"}],\"name\":\"getAuthorRewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"}],\"name\":\"getPaperById\",\"outputs\":[{\"internalType\":\"contractSPT\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"reviewerAddress\",\"type\":\"address\"}],\"name\":\"getReviewerRewardsForPaper\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"getRole\",\"outputs\":[{\"internalType\":\"enumIParticipantHandler.Role\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"reviewerAddress\",\"type\":\"address\"}],\"name\":\"isAbleToClaimForPaper\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"isAuthor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"reviewerAddress\",\"type\":\"address\"}],\"name\":\"isReviewer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"join\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"makeAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"makeAuthor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"participantAddress\",\"type\":\"address\"}],\"name\":\"makeReviewer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxPercent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minNumReadings\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"paperIdToAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"authorAddresses\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"paperURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"paperPrice\",\"type\":\"uint256\"}],\"name\":\"publishPaper\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"},{\"internalType\":\"string[]\",\"name\":\"reviews\",\"type\":\"string[]\"},{\"internalType\":\"bytes[]\",\"name\":\"reviewSignatures\",\"type\":\"bytes[]\"}],\"name\":\"publishReviewsBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paperId\",\"type\":\"uint256\"}],\"name\":\"purchasePaper\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reviewerDepositAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"factoryAddress\",\"type\":\"address\"}],\"name\":\"setFactory\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sowTokenAddress\",\"type\":\"address\"}],\"name\":\"setSowToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sowToken\",\"outputs\":[{\"internalType\":\"contractIERC20Upgradeable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // LibraryABI is the input ABI used to generate the binding from.
@@ -334,12 +334,43 @@ func (_Library *LibraryCallerSession) GetAuthorRewards(authorAddress common.Addr
 	return _Library.Contract.GetAuthorRewards(&_Library.CallOpts, authorAddress)
 }
 
-// GetReviewerRewardsForWork is a free data retrieval call binding the contract method 0x5e1dc696.
+// GetPaperById is a free data retrieval call binding the contract method 0x3e0b7810.
 //
-// Solidity: function getReviewerRewardsForWork(uint256 workId, address reviewerAddress) view returns(uint256)
-func (_Library *LibraryCaller) GetReviewerRewardsForWork(opts *bind.CallOpts, workId *big.Int, reviewerAddress common.Address) (*big.Int, error) {
+// Solidity: function getPaperById(uint256 paperId) view returns(address)
+func (_Library *LibraryCaller) GetPaperById(opts *bind.CallOpts, paperId *big.Int) (common.Address, error) {
 	var out []interface{}
-	err := _Library.contract.Call(opts, &out, "getReviewerRewardsForWork", workId, reviewerAddress)
+	err := _Library.contract.Call(opts, &out, "getPaperById", paperId)
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// GetPaperById is a free data retrieval call binding the contract method 0x3e0b7810.
+//
+// Solidity: function getPaperById(uint256 paperId) view returns(address)
+func (_Library *LibrarySession) GetPaperById(paperId *big.Int) (common.Address, error) {
+	return _Library.Contract.GetPaperById(&_Library.CallOpts, paperId)
+}
+
+// GetPaperById is a free data retrieval call binding the contract method 0x3e0b7810.
+//
+// Solidity: function getPaperById(uint256 paperId) view returns(address)
+func (_Library *LibraryCallerSession) GetPaperById(paperId *big.Int) (common.Address, error) {
+	return _Library.Contract.GetPaperById(&_Library.CallOpts, paperId)
+}
+
+// GetReviewerRewardsForPaper is a free data retrieval call binding the contract method 0x90cc8dc4.
+//
+// Solidity: function getReviewerRewardsForPaper(uint256 paperId, address reviewerAddress) view returns(uint256)
+func (_Library *LibraryCaller) GetReviewerRewardsForPaper(opts *bind.CallOpts, paperId *big.Int, reviewerAddress common.Address) (*big.Int, error) {
+	var out []interface{}
+	err := _Library.contract.Call(opts, &out, "getReviewerRewardsForPaper", paperId, reviewerAddress)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -351,18 +382,18 @@ func (_Library *LibraryCaller) GetReviewerRewardsForWork(opts *bind.CallOpts, wo
 
 }
 
-// GetReviewerRewardsForWork is a free data retrieval call binding the contract method 0x5e1dc696.
+// GetReviewerRewardsForPaper is a free data retrieval call binding the contract method 0x90cc8dc4.
 //
-// Solidity: function getReviewerRewardsForWork(uint256 workId, address reviewerAddress) view returns(uint256)
-func (_Library *LibrarySession) GetReviewerRewardsForWork(workId *big.Int, reviewerAddress common.Address) (*big.Int, error) {
-	return _Library.Contract.GetReviewerRewardsForWork(&_Library.CallOpts, workId, reviewerAddress)
+// Solidity: function getReviewerRewardsForPaper(uint256 paperId, address reviewerAddress) view returns(uint256)
+func (_Library *LibrarySession) GetReviewerRewardsForPaper(paperId *big.Int, reviewerAddress common.Address) (*big.Int, error) {
+	return _Library.Contract.GetReviewerRewardsForPaper(&_Library.CallOpts, paperId, reviewerAddress)
 }
 
-// GetReviewerRewardsForWork is a free data retrieval call binding the contract method 0x5e1dc696.
+// GetReviewerRewardsForPaper is a free data retrieval call binding the contract method 0x90cc8dc4.
 //
-// Solidity: function getReviewerRewardsForWork(uint256 workId, address reviewerAddress) view returns(uint256)
-func (_Library *LibraryCallerSession) GetReviewerRewardsForWork(workId *big.Int, reviewerAddress common.Address) (*big.Int, error) {
-	return _Library.Contract.GetReviewerRewardsForWork(&_Library.CallOpts, workId, reviewerAddress)
+// Solidity: function getReviewerRewardsForPaper(uint256 paperId, address reviewerAddress) view returns(uint256)
+func (_Library *LibraryCallerSession) GetReviewerRewardsForPaper(paperId *big.Int, reviewerAddress common.Address) (*big.Int, error) {
+	return _Library.Contract.GetReviewerRewardsForPaper(&_Library.CallOpts, paperId, reviewerAddress)
 }
 
 // GetRole is a free data retrieval call binding the contract method 0x44276733.
@@ -582,6 +613,37 @@ func (_Library *LibraryCallerSession) Owner() (common.Address, error) {
 	return _Library.Contract.Owner(&_Library.CallOpts)
 }
 
+// PaperIdToAddress is a free data retrieval call binding the contract method 0x8cd638c0.
+//
+// Solidity: function paperIdToAddress(uint256 ) view returns(address)
+func (_Library *LibraryCaller) PaperIdToAddress(opts *bind.CallOpts, arg0 *big.Int) (common.Address, error) {
+	var out []interface{}
+	err := _Library.contract.Call(opts, &out, "paperIdToAddress", arg0)
+
+	if err != nil {
+		return *new(common.Address), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+
+	return out0, err
+
+}
+
+// PaperIdToAddress is a free data retrieval call binding the contract method 0x8cd638c0.
+//
+// Solidity: function paperIdToAddress(uint256 ) view returns(address)
+func (_Library *LibrarySession) PaperIdToAddress(arg0 *big.Int) (common.Address, error) {
+	return _Library.Contract.PaperIdToAddress(&_Library.CallOpts, arg0)
+}
+
+// PaperIdToAddress is a free data retrieval call binding the contract method 0x8cd638c0.
+//
+// Solidity: function paperIdToAddress(uint256 ) view returns(address)
+func (_Library *LibraryCallerSession) PaperIdToAddress(arg0 *big.Int) (common.Address, error) {
+	return _Library.Contract.PaperIdToAddress(&_Library.CallOpts, arg0)
+}
+
 // Paused is a free data retrieval call binding the contract method 0x5c975abb.
 //
 // Solidity: function paused() view returns(bool)
@@ -696,25 +758,25 @@ func (_Library *LibraryTransactorSession) AddParticipant(participantAddress comm
 	return _Library.Contract.AddParticipant(&_Library.TransactOpts, participantAddress)
 }
 
-// AddReviewsForWork is a paid mutator transaction binding the contract method 0x5f188228.
+// AddReviewsForPaper is a paid mutator transaction binding the contract method 0xceee4fb9.
 //
-// Solidity: function addReviewsForWork(uint256 workId, address[] reviewerAddresses, uint8[] reviews) returns()
-func (_Library *LibraryTransactor) AddReviewsForWork(opts *bind.TransactOpts, workId *big.Int, reviewerAddresses []common.Address, reviews []uint8) (*types.Transaction, error) {
-	return _Library.contract.Transact(opts, "addReviewsForWork", workId, reviewerAddresses, reviews)
+// Solidity: function addReviewsForPaper(uint256 paperId, address[] reviewerAddresses, uint8[] reviews) returns()
+func (_Library *LibraryTransactor) AddReviewsForPaper(opts *bind.TransactOpts, paperId *big.Int, reviewerAddresses []common.Address, reviews []uint8) (*types.Transaction, error) {
+	return _Library.contract.Transact(opts, "addReviewsForPaper", paperId, reviewerAddresses, reviews)
 }
 
-// AddReviewsForWork is a paid mutator transaction binding the contract method 0x5f188228.
+// AddReviewsForPaper is a paid mutator transaction binding the contract method 0xceee4fb9.
 //
-// Solidity: function addReviewsForWork(uint256 workId, address[] reviewerAddresses, uint8[] reviews) returns()
-func (_Library *LibrarySession) AddReviewsForWork(workId *big.Int, reviewerAddresses []common.Address, reviews []uint8) (*types.Transaction, error) {
-	return _Library.Contract.AddReviewsForWork(&_Library.TransactOpts, workId, reviewerAddresses, reviews)
+// Solidity: function addReviewsForPaper(uint256 paperId, address[] reviewerAddresses, uint8[] reviews) returns()
+func (_Library *LibrarySession) AddReviewsForPaper(paperId *big.Int, reviewerAddresses []common.Address, reviews []uint8) (*types.Transaction, error) {
+	return _Library.Contract.AddReviewsForPaper(&_Library.TransactOpts, paperId, reviewerAddresses, reviews)
 }
 
-// AddReviewsForWork is a paid mutator transaction binding the contract method 0x5f188228.
+// AddReviewsForPaper is a paid mutator transaction binding the contract method 0xceee4fb9.
 //
-// Solidity: function addReviewsForWork(uint256 workId, address[] reviewerAddresses, uint8[] reviews) returns()
-func (_Library *LibraryTransactorSession) AddReviewsForWork(workId *big.Int, reviewerAddresses []common.Address, reviews []uint8) (*types.Transaction, error) {
-	return _Library.Contract.AddReviewsForWork(&_Library.TransactOpts, workId, reviewerAddresses, reviews)
+// Solidity: function addReviewsForPaper(uint256 paperId, address[] reviewerAddresses, uint8[] reviews) returns()
+func (_Library *LibraryTransactorSession) AddReviewsForPaper(paperId *big.Int, reviewerAddresses []common.Address, reviews []uint8) (*types.Transaction, error) {
+	return _Library.Contract.AddReviewsForPaper(&_Library.TransactOpts, paperId, reviewerAddresses, reviews)
 }
 
 // BecomeAuthor is a paid mutator transaction binding the contract method 0x85f8e4c5.
@@ -782,23 +844,23 @@ func (_Library *LibraryTransactorSession) ClaimAuthorRewards() (*types.Transacti
 
 // ClaimReviewerRewards is a paid mutator transaction binding the contract method 0xd5a2108a.
 //
-// Solidity: function claimReviewerRewards(uint256 workId) returns()
-func (_Library *LibraryTransactor) ClaimReviewerRewards(opts *bind.TransactOpts, workId *big.Int) (*types.Transaction, error) {
-	return _Library.contract.Transact(opts, "claimReviewerRewards", workId)
+// Solidity: function claimReviewerRewards(uint256 paperId) returns()
+func (_Library *LibraryTransactor) ClaimReviewerRewards(opts *bind.TransactOpts, paperId *big.Int) (*types.Transaction, error) {
+	return _Library.contract.Transact(opts, "claimReviewerRewards", paperId)
 }
 
 // ClaimReviewerRewards is a paid mutator transaction binding the contract method 0xd5a2108a.
 //
-// Solidity: function claimReviewerRewards(uint256 workId) returns()
-func (_Library *LibrarySession) ClaimReviewerRewards(workId *big.Int) (*types.Transaction, error) {
-	return _Library.Contract.ClaimReviewerRewards(&_Library.TransactOpts, workId)
+// Solidity: function claimReviewerRewards(uint256 paperId) returns()
+func (_Library *LibrarySession) ClaimReviewerRewards(paperId *big.Int) (*types.Transaction, error) {
+	return _Library.Contract.ClaimReviewerRewards(&_Library.TransactOpts, paperId)
 }
 
 // ClaimReviewerRewards is a paid mutator transaction binding the contract method 0xd5a2108a.
 //
-// Solidity: function claimReviewerRewards(uint256 workId) returns()
-func (_Library *LibraryTransactorSession) ClaimReviewerRewards(workId *big.Int) (*types.Transaction, error) {
-	return _Library.Contract.ClaimReviewerRewards(&_Library.TransactOpts, workId)
+// Solidity: function claimReviewerRewards(uint256 paperId) returns()
+func (_Library *LibraryTransactorSession) ClaimReviewerRewards(paperId *big.Int) (*types.Transaction, error) {
+	return _Library.Contract.ClaimReviewerRewards(&_Library.TransactOpts, paperId)
 }
 
 // Initialize is a paid mutator transaction binding the contract method 0x8129fc1c.
@@ -906,67 +968,67 @@ func (_Library *LibraryTransactorSession) MakeReviewer(participantAddress common
 	return _Library.Contract.MakeReviewer(&_Library.TransactOpts, participantAddress)
 }
 
-// PublishPaper is a paid mutator transaction binding the contract method 0xbf2a95ca.
+// PublishPaper is a paid mutator transaction binding the contract method 0xcbfbe7d5.
 //
-// Solidity: function publishPaper(address[] authorAddresses, string name, string tokenURI, uint256 paperId) returns()
-func (_Library *LibraryTransactor) PublishPaper(opts *bind.TransactOpts, authorAddresses []common.Address, name string, tokenURI string, paperId *big.Int) (*types.Transaction, error) {
-	return _Library.contract.Transact(opts, "publishPaper", authorAddresses, name, tokenURI, paperId)
+// Solidity: function publishPaper(address[] authorAddresses, string name, string paperURI, uint256 paperId, uint256 paperPrice) returns()
+func (_Library *LibraryTransactor) PublishPaper(opts *bind.TransactOpts, authorAddresses []common.Address, name string, paperURI string, paperId *big.Int, paperPrice *big.Int) (*types.Transaction, error) {
+	return _Library.contract.Transact(opts, "publishPaper", authorAddresses, name, paperURI, paperId, paperPrice)
 }
 
-// PublishPaper is a paid mutator transaction binding the contract method 0xbf2a95ca.
+// PublishPaper is a paid mutator transaction binding the contract method 0xcbfbe7d5.
 //
-// Solidity: function publishPaper(address[] authorAddresses, string name, string tokenURI, uint256 paperId) returns()
-func (_Library *LibrarySession) PublishPaper(authorAddresses []common.Address, name string, tokenURI string, paperId *big.Int) (*types.Transaction, error) {
-	return _Library.Contract.PublishPaper(&_Library.TransactOpts, authorAddresses, name, tokenURI, paperId)
+// Solidity: function publishPaper(address[] authorAddresses, string name, string paperURI, uint256 paperId, uint256 paperPrice) returns()
+func (_Library *LibrarySession) PublishPaper(authorAddresses []common.Address, name string, paperURI string, paperId *big.Int, paperPrice *big.Int) (*types.Transaction, error) {
+	return _Library.Contract.PublishPaper(&_Library.TransactOpts, authorAddresses, name, paperURI, paperId, paperPrice)
 }
 
-// PublishPaper is a paid mutator transaction binding the contract method 0xbf2a95ca.
+// PublishPaper is a paid mutator transaction binding the contract method 0xcbfbe7d5.
 //
-// Solidity: function publishPaper(address[] authorAddresses, string name, string tokenURI, uint256 paperId) returns()
-func (_Library *LibraryTransactorSession) PublishPaper(authorAddresses []common.Address, name string, tokenURI string, paperId *big.Int) (*types.Transaction, error) {
-	return _Library.Contract.PublishPaper(&_Library.TransactOpts, authorAddresses, name, tokenURI, paperId)
-}
-
-// PublishReviewsBatch is a paid mutator transaction binding the contract method 0x3cf921c7.
-//
-// Solidity: function publishReviewsBatch(uint256 workId, string[] reviews, bytes[] reviewSignatures) returns()
-func (_Library *LibraryTransactor) PublishReviewsBatch(opts *bind.TransactOpts, workId *big.Int, reviews []string, reviewSignatures [][]byte) (*types.Transaction, error) {
-	return _Library.contract.Transact(opts, "publishReviewsBatch", workId, reviews, reviewSignatures)
+// Solidity: function publishPaper(address[] authorAddresses, string name, string paperURI, uint256 paperId, uint256 paperPrice) returns()
+func (_Library *LibraryTransactorSession) PublishPaper(authorAddresses []common.Address, name string, paperURI string, paperId *big.Int, paperPrice *big.Int) (*types.Transaction, error) {
+	return _Library.Contract.PublishPaper(&_Library.TransactOpts, authorAddresses, name, paperURI, paperId, paperPrice)
 }
 
 // PublishReviewsBatch is a paid mutator transaction binding the contract method 0x3cf921c7.
 //
-// Solidity: function publishReviewsBatch(uint256 workId, string[] reviews, bytes[] reviewSignatures) returns()
-func (_Library *LibrarySession) PublishReviewsBatch(workId *big.Int, reviews []string, reviewSignatures [][]byte) (*types.Transaction, error) {
-	return _Library.Contract.PublishReviewsBatch(&_Library.TransactOpts, workId, reviews, reviewSignatures)
+// Solidity: function publishReviewsBatch(uint256 paperId, string[] reviews, bytes[] reviewSignatures) returns()
+func (_Library *LibraryTransactor) PublishReviewsBatch(opts *bind.TransactOpts, paperId *big.Int, reviews []string, reviewSignatures [][]byte) (*types.Transaction, error) {
+	return _Library.contract.Transact(opts, "publishReviewsBatch", paperId, reviews, reviewSignatures)
 }
 
 // PublishReviewsBatch is a paid mutator transaction binding the contract method 0x3cf921c7.
 //
-// Solidity: function publishReviewsBatch(uint256 workId, string[] reviews, bytes[] reviewSignatures) returns()
-func (_Library *LibraryTransactorSession) PublishReviewsBatch(workId *big.Int, reviews []string, reviewSignatures [][]byte) (*types.Transaction, error) {
-	return _Library.Contract.PublishReviewsBatch(&_Library.TransactOpts, workId, reviews, reviewSignatures)
+// Solidity: function publishReviewsBatch(uint256 paperId, string[] reviews, bytes[] reviewSignatures) returns()
+func (_Library *LibrarySession) PublishReviewsBatch(paperId *big.Int, reviews []string, reviewSignatures [][]byte) (*types.Transaction, error) {
+	return _Library.Contract.PublishReviewsBatch(&_Library.TransactOpts, paperId, reviews, reviewSignatures)
+}
+
+// PublishReviewsBatch is a paid mutator transaction binding the contract method 0x3cf921c7.
+//
+// Solidity: function publishReviewsBatch(uint256 paperId, string[] reviews, bytes[] reviewSignatures) returns()
+func (_Library *LibraryTransactorSession) PublishReviewsBatch(paperId *big.Int, reviews []string, reviewSignatures [][]byte) (*types.Transaction, error) {
+	return _Library.Contract.PublishReviewsBatch(&_Library.TransactOpts, paperId, reviews, reviewSignatures)
 }
 
 // PurchasePaper is a paid mutator transaction binding the contract method 0xe4103a00.
 //
-// Solidity: function purchasePaper(uint256 workId) returns()
-func (_Library *LibraryTransactor) PurchasePaper(opts *bind.TransactOpts, workId *big.Int) (*types.Transaction, error) {
-	return _Library.contract.Transact(opts, "purchasePaper", workId)
+// Solidity: function purchasePaper(uint256 paperId) returns()
+func (_Library *LibraryTransactor) PurchasePaper(opts *bind.TransactOpts, paperId *big.Int) (*types.Transaction, error) {
+	return _Library.contract.Transact(opts, "purchasePaper", paperId)
 }
 
 // PurchasePaper is a paid mutator transaction binding the contract method 0xe4103a00.
 //
-// Solidity: function purchasePaper(uint256 workId) returns()
-func (_Library *LibrarySession) PurchasePaper(workId *big.Int) (*types.Transaction, error) {
-	return _Library.Contract.PurchasePaper(&_Library.TransactOpts, workId)
+// Solidity: function purchasePaper(uint256 paperId) returns()
+func (_Library *LibrarySession) PurchasePaper(paperId *big.Int) (*types.Transaction, error) {
+	return _Library.Contract.PurchasePaper(&_Library.TransactOpts, paperId)
 }
 
 // PurchasePaper is a paid mutator transaction binding the contract method 0xe4103a00.
 //
-// Solidity: function purchasePaper(uint256 workId) returns()
-func (_Library *LibraryTransactorSession) PurchasePaper(workId *big.Int) (*types.Transaction, error) {
-	return _Library.Contract.PurchasePaper(&_Library.TransactOpts, workId)
+// Solidity: function purchasePaper(uint256 paperId) returns()
+func (_Library *LibraryTransactorSession) PurchasePaper(paperId *big.Int) (*types.Transaction, error) {
+	return _Library.Contract.PurchasePaper(&_Library.TransactOpts, paperId)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
@@ -990,25 +1052,25 @@ func (_Library *LibraryTransactorSession) RenounceOwnership() (*types.Transactio
 	return _Library.Contract.RenounceOwnership(&_Library.TransactOpts)
 }
 
-// SetPaperFactory is a paid mutator transaction binding the contract method 0xe7e86498.
+// SetFactory is a paid mutator transaction binding the contract method 0x5bb47808.
 //
-// Solidity: function setPaperFactory(address factoryAddress) returns()
-func (_Library *LibraryTransactor) SetPaperFactory(opts *bind.TransactOpts, factoryAddress common.Address) (*types.Transaction, error) {
-	return _Library.contract.Transact(opts, "setPaperFactory", factoryAddress)
+// Solidity: function setFactory(address factoryAddress) returns()
+func (_Library *LibraryTransactor) SetFactory(opts *bind.TransactOpts, factoryAddress common.Address) (*types.Transaction, error) {
+	return _Library.contract.Transact(opts, "setFactory", factoryAddress)
 }
 
-// SetPaperFactory is a paid mutator transaction binding the contract method 0xe7e86498.
+// SetFactory is a paid mutator transaction binding the contract method 0x5bb47808.
 //
-// Solidity: function setPaperFactory(address factoryAddress) returns()
-func (_Library *LibrarySession) SetPaperFactory(factoryAddress common.Address) (*types.Transaction, error) {
-	return _Library.Contract.SetPaperFactory(&_Library.TransactOpts, factoryAddress)
+// Solidity: function setFactory(address factoryAddress) returns()
+func (_Library *LibrarySession) SetFactory(factoryAddress common.Address) (*types.Transaction, error) {
+	return _Library.Contract.SetFactory(&_Library.TransactOpts, factoryAddress)
 }
 
-// SetPaperFactory is a paid mutator transaction binding the contract method 0xe7e86498.
+// SetFactory is a paid mutator transaction binding the contract method 0x5bb47808.
 //
-// Solidity: function setPaperFactory(address factoryAddress) returns()
-func (_Library *LibraryTransactorSession) SetPaperFactory(factoryAddress common.Address) (*types.Transaction, error) {
-	return _Library.Contract.SetPaperFactory(&_Library.TransactOpts, factoryAddress)
+// Solidity: function setFactory(address factoryAddress) returns()
+func (_Library *LibraryTransactorSession) SetFactory(factoryAddress common.Address) (*types.Transaction, error) {
+	return _Library.Contract.SetFactory(&_Library.TransactOpts, factoryAddress)
 }
 
 // SetSowToken is a paid mutator transaction binding the contract method 0x207848c4.
